@@ -285,45 +285,6 @@
               <svg class="bi"><use xlink:href="#plus-circle"/></svg>
             </a>
 
-            <!-- Modal Part for adding player in the game-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="player-name" class="col-form-label">Player Name:</label>
-                        <input type="text" class="form-control" id="player-name" v-model="playerNameSelect">
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Select character: </label>
-                        <select class="form-select" name="character" id="character-select" v-model="characterSelect">
-                          <option v-for="user_in in characters" v-bind:value="user_in" :key="user_in.id" v-show="user_in.taken == false">
-                            {{ user_in.name }}
-                          </option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Current Players: </label>
-                        <ul class="list-group">
-                          <li v-for="user_in in users" class="list-group-item">
-                            {{ user_in.playerName }} - {{ user_in.name }}
-                          </li>
-                        </ul>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" @click="addPlayer(characterSelect, playerNameSelect)">Add Player</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </h6>
           <!--
           <ul class="nav flex-column mb-auto">
@@ -428,8 +389,49 @@
       </div>
     </main>
   </div>
-</div>
 
+
+  <!-- Modal Part for adding player in the game-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="player-name" class="col-form-label">Player Name:</label>
+              <input type="text" class="form-control" id="player-name" v-model="playerNameSelect">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Select character: </label>
+              <select class="form-select" name="character" id="character-select" v-model="characterSelect">
+                <option v-for="user_in in characters" v-bind:value="user_in" :key="user_in.id" v-show="user_in.taken == false">
+                  {{ user_in.name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Current Players: </label>
+              <ul class="list-group">
+                <li v-for="user_in in users" class="list-group-item">
+                  {{ user_in.playerName }} - {{ user_in.name }}
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" @click="addPlayer(characterSelect, playerNameSelect)">Add Player</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
   
